@@ -6,6 +6,6 @@ module.exports = {
 
     const tarefa = await Tarefas.create({nome: nome, concluido: concluido })
 
-    return res.json(user);
+    return res.json(tarefa);
   }
 }

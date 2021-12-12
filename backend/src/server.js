@@ -1,6 +1,11 @@
-const app = require('./index');
+const express = require('express');
+const routes = require('./routes');
 
-require('./database/')
+require('./database/index');
 
+const app = express();
+
+app.use(express.json());
+app.use(routes);
 
 app.listen(3333);
