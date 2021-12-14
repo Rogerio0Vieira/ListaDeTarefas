@@ -2,6 +2,7 @@
  Aplicação utilizada para registrar tarefas
  
  Backend
+ 
  Nesta aplicação, coloquei em pratica meus conhecimentos de Node: Construção de API REST, integração com banco de dados utilizando o sequelize
  O gerenciador de pacotes utilizado foi o yarn (Não tenho nenhuma preferencia entre yarn ou npm mas ja venho usando o yarn a um tempo)
  Utilizei o banco de dados postgres
