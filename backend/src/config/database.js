@@ -1,3 +1,4 @@
+//este arquivo tra com ele as informações do banco de dados que eu utilizei
 module.exports = {
   dialect: 'postgres',
   host:'localhost',

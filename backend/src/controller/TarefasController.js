@@ -1,3 +1,5 @@
+//Este arquivo fica responsavel pelas funcionalidades das rotas apresentadas no
+//arquivo routes.js
 const Tarefas = require('../model/Tarefas');
 
 module.exports = {
