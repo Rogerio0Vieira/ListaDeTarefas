@@ -12,11 +12,40 @@ module.exports = {
     return res.json(tarefas);
   },
 
+  async obterListaDeTarefasTrue(req, res){
+
+    const tarefas = await Tarefas.findAll(
+      {
+        where: {
+          concluido: true
+        }
+      }
+    );
+
+    return res.json(tarefas)
+  },
+
+  async obterListaDeTarefasName(req, res){
+    const {name} = req.body;
+
+    const tarefas = await Tarefas.findOne({
+      where: name
+    })
+    
+    if(!tarefas){
+      return res.status(400).json({error:'Tarefa não encontrada'})
+    }
+
+
+    return res.json(tarefas)
+  },
+
   async getAll(req,res){
     const tarefas = await Tarefas.findAll();
 
     return res.json(tarefas);
   },
+
 
   async store(req, res) {
     const {nome, concluido} = req.body;
@@ -36,14 +65,16 @@ module.exports = {
       return res.status(400).json({error:'Tarefa não encontrada'})
     }
 
-    tarefas.update({concluido});
+    tarefas.update(
+      {concluido: concluido},
+      {where:id}
+      );
 
     return res.json(tarefas);
   },
 
   async delete(req, res){
     const {id} = req.params;
-    const {concluido} = req.body;
 
     const tarefas = await Tarefas.findByPk(id);
     
