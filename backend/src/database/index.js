@@ -1,4 +1,3 @@
-//const cors = require('cors');
 const Sequelize = require('sequelize');
 const dbConfig = require('../config/database');
 const Tarefas = require('../model/Tarefas.js');
