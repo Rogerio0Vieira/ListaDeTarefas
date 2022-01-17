@@ -1,33 +1,39 @@
-import './App.css';
-import {useState} from 'react';
-import api from './services/api';
-
-
+import React, { useEffect, useState } from "react";
+import api from "./services/api";
+import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import axios from "axios";
+import Post from "./pages/Post/post";
+import Edit from "./pages/Edit/edit";
+import List from "./pages/List/list";
 
 function App() {
+  /*const addPost = data => axios.post("http://localhost:3333/criartarefa", data)
+  .then(()=>{
+    console.log('Ok')
+  }).catch(()=>{
+    console.log('errou')
+  })*/
+
+  /*const [post, setPosts] = useState([])
+
+  useEffect(() =>{
+    api.get("http://localhost:3333/tarefas")
+    .then((response) =>{
+      setPosts(response.data)
+    }).catch(() =>{
+      console.log('errou')
+    })
+
+  }, [])*/
+
   return (
-    <div className="app--container">
-      <div className="register--container">
-        <h1>Minhas Tarefas</h1>
-          <input 
-           type="text" 
-           name="name"
-           placeholder='Nome da tarefa' 
-           className='register--input'
-          />
-          <select name="" id="">
-            <option value="true">Concluida</option>
-            <option value="false">Em andamento</option>
-          </select>
-          <button>Cadastrar</button>
-      </div>
-      <div>
-        <div class='task'>  {/* Nessa div vai o mapping */}
-          <h3>Teste</h3>
-          <span>True</span>
-        </div>
-      </div>
-    </div>
+    <Router>
+      <Routes>
+        <Route exact path="/" element={<Post/>}/>
+        <Route path="/edit" element={<Edit/>}/>
+        <Route path="/list" element={<List/>}/>
+      </Routes>
+    </Router>
   );
 }
 
